@@ -51,3 +51,38 @@ dt2 = datetime.now() - t0
 
 print "dt1 / dt2: ", dt1.total_seconds() / dt2.total_seconds
 ```
+
+# 網路爬蟲
+
+## 網路抓取所需的庫
+
+要先安裝visual c++ build tools，不然可能會出現錯誤代碼：[Visual C++ Build Tools](https://visualstudio.microsoft.com/visual-cpp-build-tools/)
+
+* Urllib2：這是一個可用於獲取URL的Python模塊。它定義了函數和類來幫助URL操作（基本和摘要式身份驗證，重定向cookie等）。
+```
+pip install requests
+```
+* BeautifulSoup：這是一個從網頁中提取信息的工具。可以使用它來提取表格、列表和段落，也可以使用過濾器從網頁中提取信息。
+```
+pip install BeautifulSoup4
+pip install lxml
+pip install html5lib
+```
+
+由於BeatifulSoup不會為我們提取網頁，所以我們才要使用urllib2與BeautifulSoup庫結合使用。
+
+## 熟悉HTML標籤
+
+```
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>My First Heading</h1>
+
+<p>My First paragraph.</p>
+
+</body>
+</html>
+```
+
