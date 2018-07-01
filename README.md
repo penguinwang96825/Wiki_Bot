@@ -90,7 +90,9 @@ pip install html5lib
 
 ## 利用Wikipedia回答專業知識
 
-如果是讓機器人只能回答我們的問答集，那就有點無聊了。為了提升機器人的智能，我們可以撰寫一Python網路爬蟲，讓該爬蟲根據我們的關鍵字到維基百科上搜尋專業知識，並將專業知識的第一段串接到對話流程中，便能讓我們的Open Jarvis回答專業問題了
+如果是讓機器人只能回答我們的問答集，那就有點無聊了。為了提升機器人的智能，我們可以撰寫一Python網路爬蟲，讓該爬蟲根據我們的關鍵字到維基百科上搜尋專業知識，並將專業知識的第一段串接到對話流程中，便能讓我們的Open Jarvis回答專業問題了。
+
+參考自[[Open Jarvis] 如何讓對話機器人利用 Wikipedia 回答專業知識?](https://www.youtube.com/watch?v=T5UIySP9Owc&feature=youtu.be)
 
 ```
 import speech_recognition
