@@ -15,6 +15,13 @@ Learning the basic structure of python
 3. 也可以用cd進入某個資料夾：`cd /d C:\Users\Wang Yang\Desktop`
 4. 現在如果我們要在桌面上放置一個python_learning資料夾：`mkdir python_learning`，當然再`cd python_learning`, 之後檔案存取都是在這裡
 5. %bookmark魔術指令(書籤功能)：例如我們現在在剛剛`~/Desktop/python_learning`中，如果我直接設`%bookmark wang`，以後不管我路徑在哪邊，只要`cd wang`就會到`~/Desktop/python_learning`裡面
+6. 如何知道現在python的安裝路徑：
+
+```
+import sys
+path = sys.executable
+print(path)
+```
 
 ## 存取和執行
 
