@@ -21,6 +21,31 @@ Learning the basic structure of python
 1. IPython 提供了非常方便的存檔和執行指令，例如說剛剛打完程式碼，最後要存下去的輸入列是第1行，第3、4、5行，第12行這樣，想存成wang.py檔，那便是要在CMD中這樣打`%save wang.py 1 3-5 12`。
 2. 要在IPython中執行一個.py檔：`%run wang.py`
 
+# Count Primes
+
+## Write a function that returns the number of prime numbers that exist up to and including a given number.
+
+```
+def count_primes(num):
+	# Check for 0 or 1 input
+	if num < 2:
+		return 0
+	# Check for 2 or greater
+	primes = [2]
+	x = 3
+	while x <= num:
+		for y in primes:
+			if x % y == 0:
+				x += 2
+				break
+		else:
+			primes.append(x)
+			x += 2
+			
+	print(primes)
+	return len(primes)
+```
+
 # Dot Product Speed Comparison
 
 ## Slow dot product
