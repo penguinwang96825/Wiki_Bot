@@ -58,13 +58,13 @@ LEGB作用域查找原則：當引用一個變量時，Python 按以下順序依
 >
 >* B: Built-in (Python) -- Names preassigned in the built-in names module: open, range, SyntaxError, ...
 
->L – Local: 本地作用域;
+>* L -- Local: 本地作用域;
 >
->E – Enclosing: 上一層結構中 def 或 lambda 的本地作用域;
+>* E -- Enclosing: 上一層結構中 def 或 lambda 的本地作用域;
 >
->G – Global: 全局作用域;
+>* G -- Global: 全局作用域;
 >
->B – Build-in: 內置作用域。
+>* B -- Build-in: 內置作用域。
 
 # Dot Product Speed Comparison
 
