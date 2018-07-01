@@ -46,6 +46,26 @@ def count_primes(num):
 	return len(primes)
 ```
 
+# LEGB Rule
+
+LEGB作用域查找原則：當引用一個變量時，Python 按以下順序依次進行查找：從本地變量中，在任意上層函數的作用域，在全局作用域，最後在內置作用域中查找。第一個能夠完成查找的就算成功。變量在代碼中被賦值的位置通常就決定了它的作用域。
+
+>* L: Local -- Names assigned in any way withina function (def or lambda), and not declared global in that function.
+
+* E: Enclosing function locals -- Names in the local scope of any and all enclosing functions (def or lambda), from inner to outer.
+
+* G: Global (Module) -- Names assigned at the top-level of a module file, or declared global in a def within the file.
+
+* B: Built-in (Python) -- Names preassigned in the built-in names module: open, range, SyntaxError, ...
+
+>L – Local: 本地作用域;
+
+E – Enclosing: 上一層結構中 def 或 lambda 的本地作用域;
+
+G – Global: 全局作用域;
+
+B – Build-in: 內置作用域。
+
 # Dot Product Speed Comparison
 
 ## Slow dot product
