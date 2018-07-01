@@ -104,7 +104,7 @@ dt2 = datetime.now() - t0
 print("dt1 / dt2: ", dt1.total_seconds() / dt2.total_seconds())
 ```
 
-# 網路爬蟲
+# Web Crawler (網路爬蟲)
 
 ## 網路抓取所需的庫
 
