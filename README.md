@@ -13,7 +13,7 @@ Learning the basic structure of python
 1. 想看現在的資料夾下有什麼檔案：`ls`
 2. 當然可以知道現在的路徑是什麼：`pwd`
 3. 也可以用cd進入某個資料夾：`cd /d C:\Users\Wang Yang\Desktop`
-4. 現在如果我們要在桌面上放置一個python_learning資料夾：`mkdir python_learning`，當然再 cd python_learning, 之後檔案存取都是在這裡
+4. 現在如果我們要在桌面上放置一個python_learning資料夾：`mkdir python_learning`，當然再`cd python_learning`, 之後檔案存取都是在這裡
 5. %bookmark魔術指令(書籤功能)：例如我們現在在剛剛`~/Desktop/python_learning`中，如果我直接設`%bookmark wang`，以後不管我路徑在哪邊，只要`cd wang`就會到`~/Desktop/python_learning`裡面
 
 ## 存取和執行
@@ -40,16 +40,16 @@ def slow_dot_product(a, b):
 	return result
 
 t0 = datetime.now()
-for t in xrange(T):
+for t in range(T):
 	slow_dot_product(a, b)
 dt1 = datetime.now() - t0
 
 t0 = datetime.now()
-for t in xrange(T):
+for t in range(T):
 	a.dot(b)
 dt2 = datetime.now() - t0
 
-print "dt1 / dt2: ", dt1.total_seconds() / dt2.total_seconds
+print("dt1 / dt2: ", dt1.total_seconds() / dt2.total_seconds())
 ```
 
 # 網路爬蟲
@@ -73,6 +73,8 @@ pip install html5lib
 
 ## 熟悉HTML標籤
 
+[HTML筆記](https://kknews.cc/tech/b2kjya6.html)
+
 ```
 <!DOCTYPE html>
 <html>
@@ -84,5 +86,45 @@ pip install html5lib
 
 </body>
 </html>
+```
+
+## 利用Wikipedia回答專業知識
+
+如果是讓機器人只能回答我們的問答集，那就有點無聊了。為了提升機器人的智能，我們可以撰寫一Python網路爬蟲，讓該爬蟲根據我們的關鍵字到維基百科上搜尋專業知識，並將專業知識的第一段串接到對話流程中，便能讓我們的Open Jarvis回答專業問題了
+
+```
+import speech_recognition
+import tempfile
+from gtts import gTTS
+from pygame import mixer 
+
+def listenTo():
+    r = speech_recognition.Recognizer()
+
+    with speech_recognition.Microphone() as source:
+        r.adjust_for_ambient_noise(source)
+        audio = r.listen(source)
+
+    return r.recognize_google(audio, language='zh-TW')
+
+
+def speak(sentence):
+    mixer.init()
+    with tempfile.NamedTemporaryFile(delete=True) as fp:
+        tts = gTTS(text=sentence, lang='zh')
+        tts.save("{}.mp3".format(fp.name))
+        mixer.music.load('{}.mp3'.format(fp.name))
+        mixer.music.play()
+
+import requests
+from bs4 import BeautifulSoup
+
+def getWiki(term):
+    res = requests.get('https://zh.wikipedia.org/wiki/{}'.format(term))
+    soup = BeautifulSoup(res.content, 'html.parser')
+    article = soup.select_one('.mw-parser-output p').text
+    return article
+    
+speak(getWiki(listenTo()))
 ```
 
