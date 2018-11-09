@@ -161,6 +161,50 @@ LEGB作用域查找原則：當引用一個變量時，Python 按以下順序依
 >
 >* B -- Build-in: 內置作用域。
 
+# Class
+
+參考自[關於Python的類別(Class)](https://medium.com/@weilihmen/%E9%97%9C%E6%96%BCpython%E7%9A%84%E9%A1%9E%E5%88%A5-class-%E5%9F%BA%E6%9C%AC%E7%AF%87-5468812c58f2)
+
+模組為了有架構的呈現功能一定是好由幾個py檔組成，而這些py檔裡面再用class及def結構化，所以class跟def是組成模組功能的最低架構。
+
+在python裡，就是用class 開宗明義定義一個類別名稱，通常會用首字大寫的單字。
+
+```def __init__(self):```這邊代表宣告時會自動執行的函式，也就是宣告類別的"起手式"，所以一般會拿來放基礎的屬性設定。
+
+"class的概念是屬性集合，而不是所有物" 
+
+簡單範例: 互動案例-存款與取款
+
+```
+class Account:
+    def __init__(self, number, name):
+        self.number = number
+        self.name = name
+        self.balance = 0
+        
+    def deposit(self, amount):  #存款動作: amount代表存入金額
+        if amount <= 0:
+            raise ValueError('must be positive')
+        self.balance += amount
+        
+    def withdraw(self, amount): #取款動作: amount代表取款金額
+        if amount <= self.balance:
+            self.balance -= amount
+        else:
+            raise RuntimeError('balance not enough')
+```
+
+這邊的簡單例子，便是創造一個銀行戶頭，然後銀行戶頭可以進行存款與取款的互動
+
+定義完class之後，就可以寫一些存取款動作
+
+```
+acct1 = Account(‘123–456–789’, ‘Justin’) #開一個帳戶
+acct1.deposit(100)
+acct1.withdraw(30)
+print(acct1.balance) #餘額是 70
+```
+
 # Web Crawler (網路爬蟲)
 
 ## 網路抓取所需的庫
