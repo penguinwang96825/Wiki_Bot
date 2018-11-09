@@ -125,7 +125,7 @@ dt2 = datetime.now() - t0
 print("dt1 / dt2: ", dt1.total_seconds() / dt2.total_seconds())
 ```
 
-## Pangram(全字母短句，指包括英語全部26个字母的短句)
+## Pangram(全字母短句，指包括英語全部26個字母的短句)
 
 ### Write a python function to check whether a string is pangram or not.
 
