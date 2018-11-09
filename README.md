@@ -28,9 +28,11 @@ print(path)
 1. IPython 提供了非常方便的存檔和執行指令，例如說剛剛打完程式碼，最後要存下去的輸入列是第1行，第3、4、5行，第12行這樣，想存成wang.py檔，那便是要在CMD中這樣打`%save wang.py 1 3-5 12`。
 2. 要在IPython中執行一個.py檔：`%run wang.py`
 
-# Count Primes
+# Python Coding Practice 
 
-## Write a function that returns the number of prime numbers that exist up to and including a given number.
+## Count Primes
+
+### Write a function that returns the number of prime numbers that exist up to and including a given number.
 
 ```
 def count_primes(num):
@@ -53,29 +55,48 @@ def count_primes(num):
 	return len(primes)
 ```
 
-# LEGB Rule
 
-LEGB作用域查找原則：當引用一個變量時，Python 按以下順序依次進行查找：從本地變量中，在任意上層函數的作用域，在全局作用域，最後在內置作用域中查找。第一個能夠完成查找的就算成功。變量在代碼中被賦值的位置通常就決定了它的作用域。
+## Calculate the number of upper case letters and lower case letters
 
->* L: Local -- Names assigned in any way withina function (def or lambda), and not declared global in that function.
->
->* E: Enclosing function locals -- Names in the local scope of any and all enclosing functions (def or lambda), from inner to outer.
->
->* G: Global (Module) -- Names assigned at the top-level of a module file, or declared global in a def within the file.
->
->* B: Built-in (Python) -- Names preassigned in the built-in names module: open, range, SyntaxError, ...
+### Write a python function that accepts a string and calculate the number of upper case letters and lower case letters
 
->* L -- Local: 本地作用域;
->
->* E -- Enclosing: 上一層結構中 def 或 lambda 的本地作用域;
->
->* G -- Global: 全局作用域;
->
->* B -- Build-in: 內置作用域。
+Sample string: 'Hello Mr. Wang, how are you this fine Friday?'
 
-# Dot Product Speed Comparison
+Expected output:
 
-## Slow dot product
+No. UC characters: 4
+
+No. LC characters: 30
+
+```
+def up_low(s):
+  d = {"upper": 0, "lower": 0}
+  for c in s:
+    if c.isupper():
+      d["upper"] += 1
+    elif c.islower():
+      d["lower"] += 1
+    else:
+      pass
+  print("Original String: ", s)
+  print("No. UC characters:", d["upper"])
+  print("No. LC characters:", d["lower"])
+```
+
+## Palindrome
+
+### Write a python function that checks whether a passed string is palindrome or not.
+
+Note: A palindrome is word, phrase, or sequence that reads the same backward as forward, e.g., madam or nurses run.
+
+```
+def palindrome(s):
+	return s == s[::-1]
+```
+
+## Dot Product Speed Comparison
+
+### Slow dot product
 
 ```
 import numpy as np
@@ -103,6 +124,42 @@ dt2 = datetime.now() - t0
 
 print("dt1 / dt2: ", dt1.total_seconds() / dt2.total_seconds())
 ```
+
+## Pangram
+
+### Write a python function to check whether a string is pangram or not.
+
+Note: Pangrams are words or sentences containing every letter of the alphabet at least once.
+
+For example: "The quick brown fox jumps over the lazy dog."
+
+```
+import string
+
+def ispangram(str1, alphabet = string.ascii_lowercase):
+	alphaset = set(alphabet)
+	return alphaset <= set(str1.lower())
+```
+
+# LEGB Rule
+
+LEGB作用域查找原則：當引用一個變量時，Python 按以下順序依次進行查找：從本地變量中，在任意上層函數的作用域，在全局作用域，最後在內置作用域中查找。第一個能夠完成查找的就算成功。變量在代碼中被賦值的位置通常就決定了它的作用域。
+
+>* L: Local -- Names assigned in any way withina function (def or lambda), and not declared global in that function.
+>
+>* E: Enclosing function locals -- Names in the local scope of any and all enclosing functions (def or lambda), from inner to outer.
+>
+>* G: Global (Module) -- Names assigned at the top-level of a module file, or declared global in a def within the file.
+>
+>* B: Built-in (Python) -- Names preassigned in the built-in names module: open, range, SyntaxError, ...
+
+>* L -- Local: 本地作用域;
+>
+>* E -- Enclosing: 上一層結構中 def 或 lambda 的本地作用域;
+>
+>* G -- Global: 全局作用域;
+>
+>* B -- Build-in: 內置作用域。
 
 # Web Crawler (網路爬蟲)
 
