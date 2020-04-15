@@ -11,23 +11,6 @@ pip install lxml
 pip install html5lib
 ```
 
-## HTML Tag
-
-[HTML note](https://kknews.cc/tech/b2kjya6.html)
-
-```html
-<!DOCTYPE html>
-<html>
-<body>
-
-<h1>My First Heading</h1>
-
-<p>My First paragraph.</p>
-
-</body>
-</html>
-```
-
 ## Utilise Wikipedia to answer question
 Reference from [Open Jarvis](https://www.youtube.com/watch?v=T5UIySP9Owc&feature=youtu.be).
 
