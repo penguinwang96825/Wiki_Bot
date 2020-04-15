@@ -14,7 +14,7 @@ pip install html5lib
 ## Utilise Wikipedia to answer question
 Reference from [Open Jarvis](https://www.youtube.com/watch?v=T5UIySP9Owc&feature=youtu.be).
 
-### Import packages first.
+### Import packages
 ```python
 import speech_recognition
 import tempfile
