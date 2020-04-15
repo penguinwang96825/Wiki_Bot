@@ -18,9 +18,9 @@ Reference from [Open Jarvis](https://www.youtube.com/watch?v=T5UIySP9Owc&feature
 ```python
 import speech_recognition
 import tempfile
+import requests
 from gtts import gTTS
 from pygame import mixer 
-import requests
 from bs4 import BeautifulSoup
 ```
 
