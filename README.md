@@ -2,7 +2,7 @@
 Create a bot to answer the question from wikipedia.
 
 ## Install packages
-Pre-install visual c++ build tools from [Visual C++ Build Tools](https://visualstudio.microsoft.com/visual-cpp-build-tools/)
+Pre-install visual c++ build tools from [Visual C++ Build Tools](https://visualstudio.microsoft.com/visual-cpp-build-tools/).
 
 ```bash
 pip install requests
