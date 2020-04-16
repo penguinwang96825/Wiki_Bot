@@ -26,13 +26,6 @@ from bs4 import BeautifulSoup
 
 ### Main Code
 ```python
-import speech_recognition
-import tempfile
-from gtts import gTTS
-from pygame import mixer 
-import requests
-from bs4 import BeautifulSoup
-
 def listenTo():
     r = speech_recognition.Recognizer()
 
