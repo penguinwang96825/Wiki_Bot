@@ -30,7 +30,7 @@ from bs4 import BeautifulSoup
 In terminal, type in `pip install pipwin`. Then type in `pipwin install pyaudio`.
 
 ```python
-def listenTo():
+def listen():
     r = speech_recognition.Recognizer()
 
     with speech_recognition.Microphone() as source:
@@ -39,20 +39,20 @@ def listenTo():
 
     return r.recognize_google(audio, language='zh-TW')
 
-def speak(sentence):
-    mixer.init()
-    with tempfile.NamedTemporaryFile(delete=True) as fp:
-        tts = gTTS(text=sentence, lang='zh')
-        tts.save("{}.mp3".format(fp.name))
-        mixer.music.load('{}.mp3'.format(fp.name))
-        mixer.music.play()
-
 def get_wiki_summary(question):
     r = requests.get('https://zh.wikipedia.org/wiki/{}'.format(question))
     soup = BeautifulSoup(r.content, 'html.parser')
     article = soup.select_one('.mw-parser-output p').text
     return article
+
+def speak(sentence):
+    mixer.init()
+    with tempfile.NamedTemporaryFile(delete=True) as fp:
+        tts = gTTS(text=sentence, lang='zh-TW')
+        tts.save("{}.mp3".format(fp.name))
+        mixer.music.load('{}.mp3'.format(fp.name))
+        mixer.music.play()
     
-speak(get_wiki_summary(listenTo()))
+speak(get_wiki_summary(listen()))
 ```
 
