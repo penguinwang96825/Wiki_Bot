@@ -15,6 +15,8 @@ pip install html5lib
 Reference from [Open Jarvis](https://www.youtube.com/watch?v=T5UIySP9Owc&feature=youtu.be).
 
 ### Import packages
+Install `pip install SpeechRecognition gtts pygame pipwin` first.
+
 ```python
 import speech_recognition
 import tempfile
@@ -25,6 +27,8 @@ from bs4 import BeautifulSoup
 ```
 
 ### Main Code
+In terminal, type in `pip install pipwin`. Then type in `pipwin install pyaudio`.
+
 ```python
 def listenTo():
     r = speech_recognition.Recognizer()
